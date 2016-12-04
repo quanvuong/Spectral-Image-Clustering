@@ -93,7 +93,7 @@ if( strcmp(method2,'KM') )  %% kmeans
     Quality = -distort;
 elseif( strcmp(method2,'RT1') ) %% rotation
     tic;
-    [clusts,best_group_index,Quality] = cluster_rotate(W,nGroups,0,1);
+    [clusts,best_group_index,Quality] = cluster_rotate(W,0,1);
     ttt = toc;
     best_group_index
     Quality
@@ -103,7 +103,7 @@ elseif( strcmp(method2,'RT1') ) %% rotation
     end
 elseif( strcmp(method2,'RT2') ) %% rotation
     tic;
-    [clusts,best_group_index,Quality] = cluster_rotate(W,nGroups,0,2);
+    [clusts,best_group_index,Quality] = cluster_rotate(W,0,2);
     ttt = toc;
     best_group_index
     Quality

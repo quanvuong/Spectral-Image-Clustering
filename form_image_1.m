@@ -31,7 +31,7 @@ Z=10*ones(size(X));
 X1 = [X, X];
 %X1 = [X, X; Z, X];
 %X1 = [Z,X,X; X,Z,X; X,X,Z];
-%X1 = [Z,X,Z,X; X,Z,X,Z; Z,X,Z,X; X,Z,X,Z ];
+% X1 = [Z,X,Z,X; X,Z,X,Z; Z,X,Z,X; X,Z,X,Z ];
 %X1 = [Z,X,Z,X,Z; X,Z,X,Z,X; Z,X,Z,X,Z; X,Z,X,Z,X;Z,X,Z,X,Z];
 
 X=X1;

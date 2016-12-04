@@ -1,10 +1,10 @@
 
-function [clusts,best_group_index,Quality,Vr] = cluster_rotate(A,group_num,fig,method)
+function [clusts,best_group_index,Quality,Vr] = cluster_rotate(A,fig,method)
 
 %% cluster by rotating eigenvectors to align with the canonical coordinate
 %% system
 %%
-%%   [clusts,best_group_index,Quality,Vr] = cluster_rotate(A,group_num,method,fig)
+%%   [clusts,best_group_index,Quality,Vr] = cluster_rotate(A,method,fig)
 %%  
 %%  Input:
 %%        A = Affinity matrix
@@ -28,25 +28,16 @@ function [clusts,best_group_index,Quality,Vr] = cluster_rotate(A,group_num,fig,m
 
 
 if( nargin < 2 )
-    group_num = [2:6];
-end
-if( nargin < 3 )
     fig = 0;
 end
-if( nargin < 4 )
+if( nargin < 3 )
     method = 1;  %% method to calculate cost gradient. 1 means true derivative
                  %% change to any other value to estimate fradient numerically
 end
-group_num = sort(group_num);
-group_num = setdiff(group_num,1);
 
 %%% obtain eigenvectors of laplacian of affinity matrix
 tic; 
-nClusts = max(group_num);
-[V,evals] = evecs(A,nClusts);
-nClusts
-evals
-pause
+[V,evals,~,group_num] = evecs(A); % discard the laplacian by ~
 ttt = toc;
 disp(['evecs took ' num2str(ttt) ' seconds']);
 

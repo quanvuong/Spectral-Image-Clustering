@@ -7,10 +7,10 @@ G2 = [2:10];   % number of groups to test with rotation clustering
 %IM2 = imread('FireHoze16.jpg');
 %figure(3), imshow(IM2)
 
-IM = double(rgb2gray(imread('FireHoze16.jpg')));
+% IM = double(rgb2gray(imread('FireHoze16.jpg')));
 
-% load my_image_1
-% IM = mat2gray(X);
+load my_image_1
+IM = mat2gray(X);
 figure(2), imshow(IM)
 
 [mask]     = segment_image(IM,R,G1,'SS','KM',0.1);
