@@ -57,7 +57,7 @@ W = [];
 
 %%% build distance matrix
 tic; [D,ind_non_zero,rows_nonz,cols_nonz] = imdist(IM,R); ttt=toc;
-disp(['Building affinity matrix took ' num2str(ttt) ' second']);
+fprintf('\n Building affinity matrix took %s seconds.\n', num2str(ttt));
 
 %%% switch to affinities
 if( strcmp(method1,'SS') )
@@ -95,6 +95,8 @@ elseif( strcmp(method2,'RT1') ) %% rotation
     tic;
     [clusts,best_group_index,Quality] = cluster_rotate(W,nGroups,0,1);
     ttt = toc;
+    best_group_index
+    Quality
     disp(['rotation took ' num2str(ttt) ' seconds']);  
     for i=1:length(clusts{best_group_index}),
         mask(clusts{best_group_index}{i}) = i;
@@ -103,6 +105,8 @@ elseif( strcmp(method2,'RT2') ) %% rotation
     tic;
     [clusts,best_group_index,Quality] = cluster_rotate(W,nGroups,0,2);
     ttt = toc;
+    best_group_index
+    Quality
     disp(['approx rotation took ' num2str(ttt) ' seconds']);  
     for i=1:length(clusts{best_group_index}),
         mask(clusts{best_group_index}{i}) = i;

@@ -43,7 +43,10 @@ group_num = setdiff(group_num,1);
 %%% obtain eigenvectors of laplacian of affinity matrix
 tic; 
 nClusts = max(group_num);
-[V,evals] = evecs(A,nClusts); 
+[V,evals] = evecs(A,nClusts);
+nClusts
+evals
+pause
 ttt = toc;
 disp(['evecs took ' num2str(ttt) ' seconds']);
 

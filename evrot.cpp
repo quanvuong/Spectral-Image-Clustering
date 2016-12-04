@@ -42,7 +42,7 @@ void print_array(mxArray *A)
     int i,j,ind;
     
     double *p_A = mxGetPr(A);
-    const int *idims =  mxGetDimensions(A);
+    const mwSize *idims =  mxGetDimensions(A); /* int -->  mwSize */
 
     mexPrintf("\n");
     ind = 0;
@@ -401,7 +401,7 @@ mxArray* cluster_assign(mxArray *X,
     
     /* get the number and length of eigenvectors dimensions */
     mxArray *X; X = (mxArray*)prhs[0];
-    const int *idims =  mxGetDimensions(X);
+    const mwSize *idims =  mxGetDimensions(X);  /* int --> mwSize  */
     const int ndata = idims[0];
     const int dim = idims[1];
     if( DEBUG )

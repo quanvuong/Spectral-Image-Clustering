@@ -87,10 +87,12 @@ int nrhs, const mxArray* prhs[])
 
     
     /* check matrix dimensions */
-    const int *idims =  mxGetDimensions(DISTMATRIX);
+    const mwSize *idims =  mxGetDimensions(DISTMATRIX); /* FS */
+    /* const int *idims =  mxGetDimensions(DISTMATRIX); */
     if(idims[0] != idims[1])
         mexErrMsgTxt("Distance matrix must be square");
-    const int node_num = idims[0];
+    const size_t node_num = idims[0];  /*   FS */
+    /* const int node_num = idims[0];  */
     
     if(mxIsSparse(DISTMATRIX)) {   /* Sparse matrix handling */
         
@@ -98,8 +100,10 @@ int nrhs, const mxArray* prhs[])
             mexPrintf("Detected the matrix is sparse with %d nodes\n",node_num);
         
         /* Pointers to non zero rows, cols and values */
-        int *distmat_rows = mxGetIr(DISTMATRIX);
-        int *distmat_cols = mxGetJc(DISTMATRIX);
+        mwIndex *distmat_rows = mxGetIr(DISTMATRIX); /* FS */
+        /* int *distmat_rows = mxGetIr(DISTMATRIX);  */
+        mwIndex *distmat_cols = mxGetJc(DISTMATRIX);  /* FS */
+        /* int *distmat_cols = mxGetJc(DISTMATRIX); */
         double *distmat_values = mxGetPr(DISTMATRIX);
         int non_zero = mxGetNzmax(DISTMATRIX);
         

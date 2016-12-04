@@ -4,9 +4,9 @@
 %%%%% load dataset and cluster using spectral clustering
 clear;
 
-mex dist2aff.c  ;
-mex evrot.c  ;
-mex scale_dist.c ;
+mex  -largeArrayDims dist2aff.cpp  ;
+mex  -largeArrayDims evrot.cpp  ;
+mex  -largeArrayDims scale_dist.cpp ;
 
 
 %%%%%%%%%%%%%%%% Parameters

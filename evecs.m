@@ -25,6 +25,9 @@ function [V,ss,L] = evecs(A,nEvecs)
 tic;
 npix = size(A,1);
 useSparse = issparse(A);
+
+fprintf(' size = %d %d \n', size(A))   %  *FS*
+
 dd = 1./(sum(A)+eps);
 dd = sqrt(dd);
 if(useSparse)
