@@ -76,7 +76,7 @@ Z=10*ones(size(X));
 %X1 = [X, Y; Y2, Y3];
 %X1 = [Y2,X,Y3; X,Y2,Y3; Y3,X,Y];
 %X1 = [X,Y,Y3,Y2;Z,X,Y,Y3;Y2,X,Y,Y3];
-%X1 = [X,Y,Y2,Y3,Z;Y,Y3,Y2,X,Y;X,Y,Z,Y2,Y3;Y,Y2,Y3,X,Y3;Y2,Y3,X,Z,Y3];
+X1 = [X,Y,Y2,Y3,Z;Y,Y3,Y2,X,Y;X,Y,Z,Y2,Y3;Y,Y2,Y3,X,Y3;Y2,Y3,X,Z,Y3];
 
 X=X1;
 save faisal_synthetic_data X
